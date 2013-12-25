@@ -4,7 +4,7 @@ require 'cgi'
 module Hotspot
 class Hotspot
     def initialize(user, password)
-        @uri_test = URI("http://example.iana.org/")
+        @uri_test = URI("http://www.example.com")
         @user = user
         @password = password
         login_url
