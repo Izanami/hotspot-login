@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
-  s.name        = 'hl'
-  s.version     = '0.0.0'
+  s.name        = 'hotspot-login'
+  s.version     = '0.1.0'
   s.date        = Date.today
   s.summary     = "HotspotLogin"
   s.description = "Hotspot Login"
