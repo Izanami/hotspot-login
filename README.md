@@ -24,5 +24,5 @@ profile:
 
     :password: PASSWORD
 
-    :hotspot: sfr or free or uppa...
+    :type: sfr or free or uppa...
     ``
