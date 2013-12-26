@@ -24,7 +24,7 @@ class Hotspot_Login
                 options[:verbose] = true
             end
 
-            opts.on("-h", "--hotspot HOTSPOT", "Hotspot") do |hotspot|
+            opts.on("-h", "--hotspot HOTSPOT", "Hotspot: sfr or free or uppa") do |hotspot|
                 options[:hotspot] = hotspot
             end
 
@@ -51,6 +51,19 @@ class Hotspot_Login
             "sfr" => {type: "sfr"},
             "free" => {type: "free"}
         }
+
+        path = Dir.home + "/.config/hl.yml"
+
+        if not File.exists? path
+            open(path, 'w') do |f|
+                f.puts "# profile:\n"
+                f.puts "#  hotspot: sfr or free or uppa\n"
+                f.puts "#  user:\n"
+                f.puts "#  password:\n"
+                f.puts "profile: null:\n"
+            end
+        end
+
 
         file = File.open(Dir.home + "/.config/hl.yml")
         config.merge! YAML.load(file)
