@@ -4,13 +4,6 @@ require 'optparse'
 require 'hl'
 
 class Hotspot_Login
-    def initialize
-        @engine = {
-            "sfr" => Hotspot::Sfr,
-            "free" => Hotspot::FreeWifi
-            }
-    end
-
     def parse
         @options = parse!(ARGV) if @options.nil?
         @options
@@ -47,10 +40,11 @@ class Hotspot_Login
     end
 
     def config!
-        config =  {
-            "sfr" => {type: "sfr"},
-            "free" => {type: "free"}
-        }
+        config =  Hash.new
+
+        Hotspot::Hotspot.hotspots.each do |hotspot, val|
+            config[hotspot] = {type: hotspot}
+        end
 
         path = Dir.home + "/.config/hl.yml"
 
@@ -108,7 +102,7 @@ class Hotspot_Login
     end
 
     def engine?(type)
-        @engine[type]
+        Hotspot::Hotspot.hotspots[type]
     end
 end
 

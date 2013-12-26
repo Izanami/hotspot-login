@@ -3,6 +3,7 @@ require 'cgi'
 
 module Hotspot
 class Hotspot
+    @@hotspots = Hash.new
     def initialize(user, password)
         @uri_test = "http://www.example.com"
         @user = user
@@ -75,24 +76,16 @@ class Hotspot
         Net::HTTP.post_form(URI(uri), query)
     end
 
-    def sfr?
-        info.host == "hotspot.wifi.sfr.fr"
+    def self.inherited(klass)
+        @@hotspots[klass.name.split(/::/).last] = klass
     end
 
-    def uppa?
-        info.host == "wism.univ-pau.fr"
-    end
-
-    def free?
-        info.host == "wifi.free.fr"
+    def self.hotspots
+        @@hotspots
     end
 end
 
 class Sfr < Hotspot
-    def hotspot?
-        sfr?
-    end
-
     def auth
         query = params.merge!({username: @user, username2: @user, password: @password, conditions: "on", lang: "fr", connexion: "Connexion", accessType: "neuf"})
         t = redirect? post("https://hotspot.wifi.sfr.fr/nb4_crypt.php", query)
@@ -101,10 +94,6 @@ class Sfr < Hotspot
 end
 
 class UPPA < Hotspot
-    def hotspot?
-        uppa?
-    end
-
     def auth
         query = params.merge!({username: @user, password: @password, buttonClicked: 4, info_msg:nil, info_flag: 0, err_msg: nil, err_flag: 0})
         post("https://wism.univ-pau.fr/login.html", query)
@@ -112,10 +101,6 @@ class UPPA < Hotspot
 end
 
 class FreeWifi < Hotspot
-    def hotspot?
-        free?
-    end
-
     def auth
         query = params.merge!({login: @user, password: @password, submit: "Valider"})
         post("https://wifi.free.fr/Auth", query)

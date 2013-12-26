@@ -22,7 +22,7 @@ Configuration
 profile:
     :user: USER
     :password: PASSWORD
-    :type: sfr or free or uppa...
+    :type: Sfr or FreeWifi or UPPA...
 ```
 
 Work with NetworkManager
