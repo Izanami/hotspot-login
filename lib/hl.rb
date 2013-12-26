@@ -10,21 +10,24 @@ class Hotspot
         login_url
     end
 
+    # Check connection to internet
     def connect?
         redirect = redirect? Net::HTTP.get_response(@uri_test)
         redirect == @uri_test.to_s
     end
 
+    # Get the url of login hotspot
     def login_url
         login_url! if @login_url.nil?
         @login_url
     end
 
+    # Force login_url
     def login_url!
         @login_url = redirect? Net::HTTP.get_response(@uri_test)
     end
 
-    #& Feature : HTTP redirect
+    # Get the the forwarding url
     def redirect?(res)
         case res
         when Net::HTTPSuccess then
@@ -41,10 +44,12 @@ class Hotspot
         end
     end
 
+    # Return login url
     def info
         URI.parse(login_url)
     end
 
+    # Return params of login url
     def params
         if not info.query.nil?
             CGI::parse(info.query)
@@ -53,6 +58,7 @@ class Hotspot
         end
     end
 
+    # Return uri test to test connect
     def uri_test
         @uri_test
     end
