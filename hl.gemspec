@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version     = '0.1.1'
   s.date        = Date.today
   s.summary     = "HotspotLogin"
-  s.description = "Hotspot Login"
+  s.description = "Hotspot-login is a ruby script. It goal is connect hotspot likes \"Sfr Wifi\", \"FreeWifi\" and \"UPPA\""
   s.licenses    = "GPLv3"
   s.authors     = ["Adrien Jeser"]
   s.email       = 'adrien@jeser.me'
