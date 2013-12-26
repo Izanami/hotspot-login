@@ -4,7 +4,7 @@ require 'cgi'
 module Hotspot
 class Hotspot
     def initialize(user, password)
-        @uri_test = URI("http://www.example.com")
+        @uri_test = "http://www.example.com"
         @user = user
         @password = password
         login_url
@@ -12,7 +12,7 @@ class Hotspot
 
     # Check connection to internet
     def connect?
-        redirect = redirect? Net::HTTP.get_response(@uri_test)
+        redirect = redirect? get(@uri_test)
         redirect == @uri_test.to_s
     end
 
@@ -24,7 +24,7 @@ class Hotspot
 
     # Force login_url
     def login_url!
-        @login_url = redirect? Net::HTTP.get_response(@uri_test)
+        @login_url = redirect? get(@uri_test)
     end
 
     # Get the the forwarding url
