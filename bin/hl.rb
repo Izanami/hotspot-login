@@ -57,9 +57,9 @@ class Hotspot_Login
         if not File.exists? path
             open(path, 'w') do |f|
                 f.puts "# profile:\n"
-                f.puts "#  hotspot: sfr or free or uppa\n"
-                f.puts "#  user:\n"
-                f.puts "#  password:\n"
+                f.puts "#  :hotspot: sfr or free or uppa\n"
+                f.puts "#  :user:\n"
+                f.puts "#  :password:\n"
                 f.puts "profile: null:\n"
             end
         end

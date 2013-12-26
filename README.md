@@ -18,9 +18,11 @@ Configuration
 -------------
 *Edit ~/.config/hl.yml*
 
+`
 profile:
-    user: USER
+    :user: USER
 
-    password: PASSWORD
+    :password: PASSWORD
 
-    hotspot: sfr or free or uppa...
+    :hotspot: sfr or free or uppa...
+    ``
