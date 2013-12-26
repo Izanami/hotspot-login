@@ -55,17 +55,20 @@ class Hotspot_Login
         path = Dir.home + "/.config/hl.yml"
 
         if not File.exists? path
-            open(path, 'w') do |f|
-                f.puts "# profile:\n"
-                f.puts "#  :hotspot: sfr or free or uppa\n"
-                f.puts "#  :user:\n"
-                f.puts "#  :password:\n"
-                f.puts "profile: null:\n"
+            if File.exists? "/etc/hl.yml"
+                path = "/etc/hl.yml"
+            else
+                open(path, 'w') do |f|
+                    f.puts "# profile:\n"
+                    f.puts "#  :hotspot: sfr or free or uppa\n"
+                    f.puts "#  :user:\n"
+                    f.puts "#  :password:\n"
+                    f.puts "profile: null:\n"
+                end
             end
         end
 
-
-        file = File.open(Dir.home + "/.config/hl.yml")
+        file = File.open(path)
         config.merge! YAML.load(file)
     end
 

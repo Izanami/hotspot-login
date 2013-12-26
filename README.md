@@ -21,8 +21,24 @@ Configuration
 ```
 profile:
     :user: USER
-
     :password: PASSWORD
-
     :type: sfr or free or uppa...
 ```
+
+Work with NetworkManager
+------------------------
+
+1. Edit /etc/hl.yml
+2. Create /etc/NetworkManager/dispatcher.d/hotspot.sh
+```
+#!/bin/sh
+export HOME=/
+INTERFACE=$1
+STATUS=$2
+
+case "$STATUS" in
+    'up') exec /usr/bin/hl.rb;;
+esac
+
+```
+3. chmod +x /etc/NetworkManager/dispatcher.d/hotspot.sh
