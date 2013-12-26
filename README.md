@@ -30,6 +30,7 @@ Work with NetworkManager
 
 1. Edit /etc/hl.yml
 2. Create /etc/NetworkManager/dispatcher.d/hotspot.sh
+
 ```
 #!/bin/sh
 export HOME=/
