@@ -9,7 +9,9 @@ gem install hotspot-login
 Use
 ----
 *Help* hl.rb --help
+
 *Automatic connection (use: ~/.config/hl.yml)* hl.rb
+
 *Manual connection* hl.rb --hotspot HOTSPOT --user USER --password PASSWORD
 
 Configuration
@@ -18,5 +20,7 @@ Configuration
 
 profile:
     user: USER
+
     password: PASSWORD
+
     hotspot: sfr or free or uppa...
