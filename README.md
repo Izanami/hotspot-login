@@ -18,11 +18,11 @@ Configuration
 -------------
 *Edit ~/.config/hl.yml*
 
-`
+```
 profile:
     :user: USER
 
     :password: PASSWORD
 
     :type: sfr or free or uppa...
-`
+```
