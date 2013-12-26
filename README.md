@@ -1,6 +1,6 @@
 hotspot-login
 =============
-hotspot-login is a ruby script. It goal is connect hotspot likes "Sfr Wifi", "FreeWifi" and "UPPA"
+hotspot-login is a ruby script. It goal is connected hotspot like "Sfr Wifi", "FreeWifi" and "UPPA"
 
 Install
 -------
