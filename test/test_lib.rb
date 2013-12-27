@@ -1,10 +1,10 @@
-require 'test/unit'
+require "minitest/autorun"
 require 'hl'
 
-class HlTestTest < Test::Unit::TestCase
+class HlTestTest < Minitest::Test
     def setup
         @hotspot = Hotspot::Hotspot.new("foo", "baz")
-        @res = Net::HTTP::get_response(@hotspot.uri_test)
+        @res = Net::HTTP::get_response(URI(@hotspot.uri_test))
     end
 
     def test_connect?
@@ -13,7 +13,7 @@ class HlTestTest < Test::Unit::TestCase
 
     def test_login_url
         if @hotspot.connect?
-            assert_equal @hotspot.uri_test, URI(@hotspot.login_url)
+            assert_equal URI(@hotspot.uri_test), URI(@hotspot.login_url)
         end
     end
 

@@ -1,12 +1,12 @@
-require 'test/unit'
+require "minitest/autorun"
 require 'hl'
 
-class HlTestSfr < Test::Unit::TestCase
+class HlTestFree < Minitest::Test
     def setup
         @hotspot = Hotspot::FreeWifi.new("foo", "baz")
-        @res = Net::HTTP::get_response(@hotspot.uri_test)
-        @login_url = "https://wifi.free.fr/?url=http://example.iana.org/"
-        @free = @hotspot.free?
+        @res = Net::HTTP::get_response(URI(@hotspot.uri_test))
+        @login_url = "https://wifi.free.fr/?url=http://www.example.org"
+        @free = @hotspot.hotspot?
     end
 
     def test_login_url
