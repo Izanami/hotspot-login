@@ -17,7 +17,7 @@ class Hotspot_Login
                 options[:verbose] = true
             end
 
-            opts.on("-h", "--hotspot HOTSPOT", "Hotspot: sfr or free or uppa") do |hotspot|
+            opts.on("-h", "--hotspot HOTSPOT", "Hotspot: Sfr or FreeWifi or UPPA") do |hotspot|
                 options[:hotspot] = hotspot
             end
 
