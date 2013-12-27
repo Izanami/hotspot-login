@@ -4,6 +4,10 @@ require 'optparse'
 require 'hl'
 
 class Hotspot_Login
+    def initialize
+        connect
+    end
+
     def parse
         @options = parse!(ARGV) if @options.nil?
         @options
@@ -106,4 +110,4 @@ class Hotspot_Login
     end
 end
 
-Hotspot_Login.new.connect
+Hotspot_Login.new
