@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'hotspot-login'
-  s.version     = '0.1.5'
+  s.version     = '0.1.6'
   s.date        = Date.today
   s.summary     = "HotspotLogin"
   s.description = "Hotspot-login is a ruby script. It goal is connected hotspot like \"Sfr Wifi\", \"FreeWifi\" and \"UPPA\""

@@ -95,7 +95,7 @@ class Hotspot_Login
         hotspot = engine.new(config[:user], config[:password])
 
         raise "Already connected" if hotspot.connect?
-        #return false if not hotspot.hotspot?
+        return false if not hotspot.hotspot?
 
         hotspot.auth
         hotspot.connect?
