@@ -82,10 +82,10 @@ class Hotspot_Login
         end
 
         if connected
-            puts "Connected"
+            puts "Connected" if parse[:verbose]
             true
         else
-            puts "Not connected"
+            puts "Not connected" if parse[:verbose]
             false
         end
     end
